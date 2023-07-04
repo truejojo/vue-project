@@ -5,10 +5,24 @@ const MIN_NEW_TODO_LENGTH = 3
 const MAX_NEW_TODO_LENGTH = 25
 
 const placeholder = ref('Mein neues Todo...')
+const newTodoInput = ref('')
+const newTodoPriority = ref(false)
+
+const emit = defineEmits(['addTodo'])
+
+const emitAddTodo = () => {
+  const newTodo = newTodoInput.value
+  const newPriority = newTodoPriority.value
+
+  newTodoInput.value = ""
+  newTodoPriority.value = false
+
+  return emit('addTodo', {newTodo, newPriority})
+}
 </script>
 
 <template>
-  <form @submit.prevent="addTodo" class="border rounded p-2 p-md-4 mb-2 mb-md-4">
+  <form @submit.prevent="emitAddTodo" class="border rounded p-2 p-md-4 mb-2 mb-md-4">
     <div>
       <input
         v-model.trim="newTodoInput"
