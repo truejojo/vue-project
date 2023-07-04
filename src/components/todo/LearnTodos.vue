@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+import HeaderView from '../../components/common/HeaderView.vue'
 import LearnTodoInputForm from './LearnTodoInputForm.vue'
+import LearnTodoList from './LearnTodoList.vue'
 
+const title = ref("Meine Lern todo's")
 const todos = ref([
   {
     id: 1,
@@ -22,8 +25,11 @@ const todos = ref([
     priority: false
   }
 ])
+const isInputForm = ref(false)
 
-const addTodo = ({newTodo, newPriority}) => {
+const toggleIsShowInputForm = () => isInputForm.value = !isInputForm.value
+
+const addTodo = ({ newTodo, newPriority }) => {
   newTodo.length > 0 &&
     (todos.value = [
       {
@@ -35,15 +41,27 @@ const addTodo = ({newTodo, newPriority}) => {
       ...todos.value
     ])
 }
+
+const deleteTodo = (id) => (todos.value = todos.value.filter((todo) => todo.id !== id))
+
+const toggleDone = (id) => todos.value = todos.value.map(todo => todo.id === id ? ({...todo, done: !todo.done}) : todo)
 </script>
 
 <template>
   <div>
-    <LearnTodoInputForm @addTodo="addTodo"/>
-    <ul class="list-unstyled">
-      <li v-for="todo in todos" :key="todo.id">
-        <h3 :class="[todo.priority ? 'text-danger' : 'text-info']">{{ todo.task }}</h3>
-      </li>
-    </ul>
+    <HeaderView :title="title" class="text-center">
+      <template #secondary>Das lerne ich gerade</template>
+      <button
+        @click="toggleIsShowInputForm"
+        class="btn text-uppercase"
+        :class="isInputForm ? 'btn-secondary' : 'btn-info text-danger fw-bold'"
+      >
+        {{ isInputForm ? 'Fertig' : 'Neues Todo' }}
+      </button>
+    </HeaderView>
+
+    <LearnTodoInputForm @addTodo="addTodo" v-show="isInputForm" />
+
+    <LearnTodoList :todos="todos" @deleteTodo="deleteTodo" @toggleDone="toggleDone"/>
   </div>
 </template>
