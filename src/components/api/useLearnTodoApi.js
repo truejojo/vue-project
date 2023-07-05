@@ -21,7 +21,7 @@ const useLearnTodoApi = () => {
       priority: false
     }
   ])
-  
+
   const addTodo = ({ newTodo, newPriority }) => {
     newTodo.length > 0 &&
       (todos.value = [
@@ -43,6 +43,7 @@ const useLearnTodoApi = () => {
     ))
 
   return {
+    todos,
     addTodo,
     deleteTodo,
     toggleDone
