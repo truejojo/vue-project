@@ -10,13 +10,16 @@ const { todos, addTodo, deleteTodo, toggleDone } = useLearnTodoApi()
 const title = ref("Meine Lern todo's")
 const isInputForm = ref(false)
 
-const toggleIsShowInputForm = () => (isInputForm.value = !isInputForm.value)
+const toggleIsShowInputForm = () => {
+  isInputForm.value = !isInputForm.value
+  
+}
 </script>
 
 <template>
   <div>
     <HeaderView :title="title" class="text-center">
-      <template #secondary>Das lerne ich gerade</template>
+      <template #subTitle>Das lerne ich gerade</template>
       <button
         @click="toggleIsShowInputForm"
         class="btn text-uppercase"

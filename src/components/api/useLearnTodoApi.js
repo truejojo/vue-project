@@ -1,46 +1,44 @@
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { db } from '../../firebase/index'
+import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore'
 
 const useLearnTodoApi = () => {
-  const todos = ref([
-    {
-      id: 1,
-      task: 'Vue',
-      done: false,
-      priority: true
-    },
-    {
-      id: 2,
-      task: 'Linux',
-      done: false,
-      priority: false
-    },
-    {
-      id: 3,
-      task: 'Docker',
-      done: false,
-      priority: false
-    }
-  ])
+  const todos = ref([])
+  const collectionRef = collection(db, 'learn-todos')
 
+  /** get all todo's item of learn-todos collection */
+  onMounted(async () => {
+    onSnapshot(collectionRef, (querySnapshot) => {
+      const tmpTodos = []
+      querySnapshot.forEach((doc) => {
+        const todo = {
+          id: doc.id,
+          ...doc.data()
+        }
+        tmpTodos.push(todo)
+      })
+      todos.value = tmpTodos
+    })
+  })
+
+  /** add todo item of learn-todos collection */
   const addTodo = ({ newTodo, newPriority }) => {
     newTodo.length > 0 &&
-      (todos.value = [
-        {
-          id: todos.value.length + 1,
-          task: newTodo,
-          done: false,
-          priority: newPriority
-        },
-        ...todos.value
-      ])
+      addDoc(collectionRef, {
+        task: newTodo,
+        done: false,
+        priority: newPriority
+      })
   }
 
-  const deleteTodo = (id) => (todos.value = todos.value.filter((todo) => todo.id !== id))
-
-  const toggleDone = (id) =>
-    (todos.value = todos.value.map((todo) =>
-      todo.id === id ? { ...todo, done: !todo.done } : todo
-    ))
+  /** delete todo item of learn-todos collection */
+  const deleteTodo = (todo) => todo.done && deleteDoc(doc(collectionRef, todo.id))
+  
+  /** toggle done value of a todo item of learn-todos collection */
+  const toggleDone = (todo) => updateDoc(doc(collectionRef, todo.id), {
+    ...todo.value,
+    done: !todo.done
+  })
 
   return {
     todos,

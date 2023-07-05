@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
   <header class="bg-dark text-white border-bottom">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">

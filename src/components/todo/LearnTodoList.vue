@@ -17,13 +17,13 @@ const emits = defineEmits(['deleteTodo', 'toggleDone'])
       <h3 :class="[todo.priority ? 'text-danger' : 'text-info']">{{ todo.task }}</h3>
       <div class="buttons">
         <button
-          @click="emits('toggleDone', todo.id)"
+          @click="emits('toggleDone', todo)"
           class="btn me-2 me-md-3"
           :class="[todo.done ? 'btn-primary' : 'btn-info']"
         >
           &check;
         </button>
-        <button @click="emits('deleteTodo', todo.id)" class="btn btn-danger" :disabled="!todo.done">
+        <button @click="emits('deleteTodo', todo)" class="btn btn-danger" :disabled="!todo.done">
           &cross;
         </button>
       </div>
