@@ -10,10 +10,7 @@ const { todos, addTodo, deleteTodo, toggleDone } = useLearnTodoApi()
 const title = ref("Meine Lern todo's")
 const isInputForm = ref(false)
 
-const toggleIsShowInputForm = () => {
-  isInputForm.value = !isInputForm.value
-  
-}
+const toggleIsShowInputForm = () => isInputForm.value = !isInputForm.value
 </script>
 
 <template>

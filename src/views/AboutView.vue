@@ -1,6 +1,7 @@
+<script setup>
+import LearnTodos2 from '../components/todo-2/LearnTodos2.vue'
+</script>
+
 <template>
-  <div>
-    <h1>Hello World!</h1>
-    <p>About Page!!!</p>
-  </div>
+    <LearnTodos2 />
 </template>

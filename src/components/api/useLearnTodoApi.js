@@ -7,7 +7,7 @@ const useLearnTodoApi = () => {
   const collectionRef = collection(db, 'learn-todos')
 
   /** get all todo's item of learn-todos collection */
-  onMounted(async () => {
+  onMounted(() => {
     onSnapshot(collectionRef, (querySnapshot) => {
       const tmpTodos = []
       querySnapshot.forEach((doc) => {
