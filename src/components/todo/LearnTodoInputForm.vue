@@ -23,13 +23,13 @@ const emitAddTodo = () => {
 
 <template>
   <form @submit.prevent="emitAddTodo" class="border rounded p-2 p-md-4 mb-2 mb-md-4">
-    <div>
+    <div class="lead mb-2">
       <input
         v-model.trim="newTodoInput"
         type="text"
         :placeholder="placeholder"
         :maxlength="MAX_NEW_TODO_LENGTH"
-        class="me-2 me-md-5"
+        class="me-2 me-md-5 p-1"
       />
       <label class="me-2 me-md-5">
         <input v-model="newTodoPriority" type="checkbox" />
