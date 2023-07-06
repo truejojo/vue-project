@@ -14,12 +14,12 @@ const emits = defineEmits(['deleteTodo', 'toggleDone'])
       class="d-flex justify-content-between p-2 mb-2 border rounded"
       :class="{ 'bg-success': todo.done }"
     >
-      <h3 :class="[todo.priority ? 'text-danger' : 'text-info']">{{ todo.task }}</h3>
-      <div class="buttons">
+      <h3 :class="[todo.priority ? 'text-danger' : 'text-info']" class="task">{{ todo.task }}</h3>
+      <div class="buttons ms-2 d-flex">
         <button
           @click="emits('toggleDone', todo)"
-          class="btn me-2 me-md-3"
           :class="[todo.done ? 'btn-primary' : 'btn-info']"
+          class="btn me-2 me-md-3"
         >
           &check;
         </button>
@@ -30,6 +30,13 @@ const emits = defineEmits(['deleteTodo', 'toggleDone'])
     </li>
   </ul>
 </template>
+
+<style scoped>
+.task {
+  color: orange!important;
+  word-break: break-all!important;
+}
+</style>
 
 <!-- 
 import LearnTodoListItem from './LearnTodoListItem.vue'

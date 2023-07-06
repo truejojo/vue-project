@@ -35,8 +35,8 @@ const product = {
       <div class="mb-3 d-grid align-content-center">
         <h2 class="display-2 mb-0">Unser Produkt der Woche</h2>
         <p class="lead text-info mb-0">
-          Unsere ganzen Produkte finden sie auf dieser Seite:
-          <RouterLink class="text-warning" to="/product">Produkt</RouterLink>
+          Unsere ganzen Produkte finden Ihr hier
+          <RouterLink class="text-warning" to="/product">Produkte</RouterLink>
         </p>
       </div>
       <!-- <div v-if="isProductLoading">Loading...</div> -->
@@ -64,13 +64,17 @@ const product = {
     </div>
 
     <!--HeaderView mit h2 anstatt h1, div anstatt header, wie?-->
-    <div class="mb-3">
-      <h2 class="display-2 mb-0">Meine Lern Todo's</h2>
-      <p class="lead text-info mb-0">
-        Für neue Todo's, geh bitte auf die Seite:
-        <RouterLink class="text-warning" to="/todo">Todo</RouterLink>
-      </p>
+    <div class="d-md-flex flex-md-row-reverse gap-5">
+      <div class="mb-3 d-grid align-content-center w-100">
+        <h2 class="display-2 mb-0">Meine Lern Todo's</h2>
+        <p class="lead text-info mb-0">
+          Für neue Todo's, geh bitte auf die Seite:
+          <RouterLink class="text-warning" to="/todo">Todo</RouterLink>
+        </p>
+      </div>
+      <LearnTodoList :todos="todos" @deleteTodo="deleteTodo" @toggleDone="toggleDone" class="w-100"/>
     </div>
-    <LearnTodoList :todos="todos" @deleteTodo="deleteTodo" @toggleDone="toggleDone" />
   </div>
 </template>
+
+
