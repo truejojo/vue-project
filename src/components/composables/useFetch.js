@@ -10,8 +10,6 @@ const useFetch = (url) => {
 
     try {
       const response = await fetch(url);
-      // const jsonData = await response.json();
-      // data.value = jsonData;
       data.value = await response.json();
     } catch (err) {
       error.value = err.message;
@@ -19,7 +17,7 @@ const useFetch = (url) => {
 
     isLoading.value = false;
   });
-
+  
   return  [data, error, isLoading] ;
 };
 
