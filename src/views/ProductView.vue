@@ -1,19 +1,20 @@
 <script setup>
-import useFetch from '../../../my-second-vue-project/src/composables/useFetch'
 import HeaderView from '../components/common/HeaderView.vue'
+import useFetch from '../components/composables/useFetch.js'
+import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints.js'
 
-const [products, productsError, isProductLoading] = useFetch('https://fakestoreapi.com/products')
+const [products, productsError, isProductsLoading] = useFetch(FAKE_STORE_API_PRODUCTS)
 </script>
 
 <template>
   <div class="container">
-    <HeaderView title="Über mich" class="text-center">
-      <template #subTitle>Willkommen auf der About Seite</template>
+    <HeaderView title="Alle Produkte" class="text-center">
+      <template #subTitle>Unsere aktuellen und neuesten Produkte - Sehen Sie selbst!</template>
     </HeaderView>
 
     <!-- <div class="row gy-3 gy-md-4 gx-4"> -->
     <div class="row row-cols-md-2 row-cols-lg-3 g-3 g-lg-4">
-      <div v-if="isProductLoading">Loading...</div>
+      <div v-if="isProductsLoading">Loading...</div>
       <div v-else-if="productsError">Sorry, da ist etwas schief gelaufen...</div>
       <div v-else class="card" v-for="product in products" :key="product.id">
         <!-- <div class="col-12 col-md-6 col-lg-4 card" v-for="product in products" :key="product.id"> -->
