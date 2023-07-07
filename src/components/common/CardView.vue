@@ -1,12 +1,11 @@
 <script setup>
 defineProps({
-  product:Object
+  product: Object
 })
 </script>
 
 <template>
-
-  <div class="card">
+  <div v-if="product" class="card">
     <div class="p-3 p-lg-5">
       <img :src="product.image" class="card-img-top" :alt="product.title" />
     </div>

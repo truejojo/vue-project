@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 import useLearnTodoApi from '../components/api/useLearnTodoApi'
 import HeaderView from '../components/common/HeaderView.vue'
 import LearnTodoList from '../components/todo/LearnTodoList.vue'
-import CardView from '../components/common/CardView.vue'
+// import CardView from '../components/common/CardView.vue'
 // import useFetch from '../components/composables/useFetch.js'
 // import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints.js'
 
@@ -41,8 +41,27 @@ const product = {
         </p>
       </div>
       <!-- <div v-if="isProductLoading">Loading...</div> -->
-      <!-- <div v-else-if="productError">Sorry, da ist etwas schief gelaufen...</div> -->
-      <CardView :product="product" />
+      <!-- <div v-if="productError">Sorry, da ist etwas schief gelaufen...</div> -->
+      <div v-if="product" class="card">
+        <div class="p-3 p-lg-5">
+          <img :src="product.image" class="card-img-top" :alt="product.title" />
+        </div>
+        <div class="card-body">
+          <div class="fw-bold d-flex justify-content-between mb-3 mb-md-4 mb-lg-5">
+            <span>Preis: {{ product.price }}€</span>
+            <span>Kategorie: {{ product.category }}</span>
+          </div>
+          <h3 class="card-title">{{ product.title }}</h3>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
+        <div class="text-center">
+          <p>
+            Rate: <span>{{ product.rating.rate }}</span> | Count:
+            <span>{{ product.rating.count }}</span>
+          </p>
+        </div>
+      </div>
+      <!-- <CardView :product="product" /> -->
     </div>
 
     <!--HeaderView mit h2 anstatt h1, div anstatt header, wie?-->
