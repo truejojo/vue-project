@@ -33,8 +33,7 @@ const emits = defineEmits(['deleteTodo', 'toggleDone'])
 
 <style scoped>
 .task {
-  color: orange!important;
-  word-break: break-all!important;
+  word-break: break-all !important;
 }
 </style>
 

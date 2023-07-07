@@ -2,6 +2,7 @@
 import HeaderView from '../components/common/HeaderView.vue'
 import useFetch from '../components/composables/useFetch.js'
 import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints.js'
+// import CardView from '../components/common/CardView.vue';
 
 const [products, productsError, isProductsLoading] = useFetch(FAKE_STORE_API_PRODUCTS)
 </script>
@@ -9,15 +10,14 @@ const [products, productsError, isProductsLoading] = useFetch(FAKE_STORE_API_PRO
 <template>
   <div class="container">
     <HeaderView title="Alle Produkte" class="text-center">
-      <template #subTitle>Unsere aktuellen und neuesten Produkte - Sehen Sie selbst!</template>
+      <template #subTitle>Unsere aktuellen und neuesten Produkte</template>
     </HeaderView>
 
-    <!-- <div class="row gy-3 gy-md-4 gx-4"> -->
     <div class="row row-cols-md-2 row-cols-lg-3 g-3 g-lg-4">
       <div v-if="isProductsLoading">Loading...</div>
       <div v-else-if="productsError">Sorry, da ist etwas schief gelaufen...</div>
+
       <div v-else class="card" v-for="product in products" :key="product.id">
-        <!-- <div class="col-12 col-md-6 col-lg-4 card" v-for="product in products" :key="product.id"> -->
         <div class="p-3 p-lg-5">
           <img :src="product.image" class="card-img-top" :alt="product.title" />
         </div>
@@ -36,6 +36,7 @@ const [products, productsError, isProductsLoading] = useFetch(FAKE_STORE_API_PRO
           </p>
         </div>
       </div>
+      <!-- <CardView v-else v-for="product in products" :key="product.id"/> -->
     </div>
   </div>
 </template>
