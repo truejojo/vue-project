@@ -19,8 +19,8 @@ defineProps({
     </div>
     <div class="text-center">
       <p>
-        Rate: <span>{{ product.rating.rate }}</span> | Count:
-        <span>{{ product.rating.count }}</span>
+        <!-- Rate: <span>{{ product.rating.rate }}</span> | Count:
+        <span>{{ product.rating.count }}</span> -->
       </p>
     </div>
   </div>
