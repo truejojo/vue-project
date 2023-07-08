@@ -2,9 +2,12 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import useLearnTodoApi from '../components/api/useLearnTodoApi'
-import HeaderView from '../components/common/HeaderView.vue'
 import LearnTodoList from '../components/todo/LearnTodoList.vue'
-// import CardView from '../components/common/CardView.vue'
+import HeaderView from '../components/common/HeaderView.vue'
+import Header2View from '../components/common/Header2View.vue'
+import CardView from '../components/common/CardView.vue'
+import TextHeadlineLeft2Column from '../layouts/TextHeadlineLeft2Column.vue'
+import TextHeadlineRight2Column from '../layouts/TextHeadlineRight2Column.vue'
 // import useFetch from '../components/composables/useFetch.js'
 // import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints.js'
 
@@ -32,53 +35,33 @@ const product = {
       <template #subTitle>{{ subTitle }}</template>
     </HeaderView>
 
-    <div class="row row-cols-md-2 mb-5">
-      <div class="mb-3 d-grid align-content-center">
-        <h2 class="display-2 mb-0">Unser Produkt der Woche</h2>
-        <p class="lead text-info mb-0">
-          Unsere ganzen Produkte finden Ihr hier
-          <RouterLink class="text-warning" to="/product">Produkte</RouterLink>
-        </p>
-      </div>
-      <!-- <div v-if="isProductLoading">Loading...</div> -->
-      <!-- <div v-if="productError">Sorry, da ist etwas schief gelaufen...</div> -->
-      <div v-if="product" class="card">
-        <div class="p-3 p-lg-5">
-          <img :src="product.image" class="card-img-top" :alt="product.title" />
-        </div>
-        <div class="card-body">
-          <div class="fw-bold d-flex justify-content-between mb-3 mb-md-4 mb-lg-5">
-            <span>Preis: {{ product.price }}€</span>
-            <span>Kategorie: {{ product.category }}</span>
-          </div>
-          <h3 class="card-title">{{ product.title }}</h3>
-          <p class="card-text">{{ product.description }}</p>
-        </div>
-        <div class="text-center">
-          <p>
-            Rate: <span>{{ product.rating.rate }}</span> | Count:
-            <span>{{ product.rating.count }}</span>
-          </p>
-        </div>
-      </div>
-      <!-- <CardView :product="product" /> -->
-    </div>
+    <TextHeadlineLeft2Column>
+      <template #headline>
+        <Header2View title="Unser Produkt der Woche">
+          <template #subTitle>
+            Unsere ganzen Produkte finden Ihr hier
+            <RouterLink class="text-warning" to="/product">Produkte</RouterLink>
+          </template>
+        </Header2View>
+      </template>
+      <CardView v-if="product" :product="product" />
+    </TextHeadlineLeft2Column>
 
-    <!--HeaderView mit h2 anstatt h1, div anstatt header, wie?-->
-    <div class="d-md-flex flex-md-row-reverse gap-5">
-      <div class="mb-3 d-grid align-content-center w-100">
-        <h2 class="display-2 mb-0">Meine Lern Todo's</h2>
-        <p class="lead text-info mb-0">
-          Für neue Todo's, geh bitte auf die Seite:
-          <RouterLink class="text-warning" to="/todo">Todo</RouterLink>
-        </p>
-      </div>
+    <TextHeadlineRight2Column>
+      <template #headline>
+        <Header2View title="Meine Lern Todo's">
+          <template #subTitle>
+            Für neue Todo's, geh bitte auf die Seite:
+            <RouterLink class="text-warning" to="/todo">Todo</RouterLink>
+          </template>
+        </Header2View>
+      </template>
       <LearnTodoList
         :todos="todos"
         @deleteTodo="deleteTodo"
         @toggleDone="toggleDone"
         class="w-100"
       />
-    </div>
+    </TextHeadlineRight2Column>
   </div>
 </template>
