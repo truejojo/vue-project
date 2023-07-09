@@ -12,13 +12,13 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/todo',
-      name: 'todo',
+      path: '/todos',
+      name: 'todos',
       component: TodoView
     },
     {
-      path: '/product',
-      name: 'product',
+      path: '/products',
+      name: 'products',
       component: ProductView
     }
   ]

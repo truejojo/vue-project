@@ -1,52 +1,24 @@
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 
 const useFetch = (url) => {
-  const data = ref([]);
-  // const error = ref(null);
-  // const isLoading = ref(false);
+  const data = ref([])
+  const error = ref(null)
+  const isLoading = ref(false)
 
   onMounted(async () => {
-    // isLoading.value = true;
+    isLoading.value = true
 
     try {
-      const response = await fetch(url);
-      data.value = await response.json();
+      const response = await fetch(url)
+      data.value = await response.json()
     } catch (err) {
-      // error.value = err.message;
-      console.log(err);
+      error.value = err.message
     }
 
-    // isLoading.value = false;
-  });
-  
-  return  [data] ;
-  // return  [data, error, isLoading] ;
-};
+    isLoading.value = false
+  })
 
-export default useFetch;
+  return [data, error, isLoading]
+}
 
-
-// const useFetch = (url) => {
-//   const data = ref(null);
-//   const error = ref(null);
-//   const isLoading = ref(false);
-
-//   onMounted(async () => {
-//     isLoading.value = true;
-
-//     try {
-//       const response = await fetch(url);
-//       data.value = await response.json();
-//     } catch (err) {
-//       error.value = err.message;
-//       console.log(err);
-//     }
-
-//     isLoading.value = false;
-//   });
-  
-//   return  [data] ;
-//   return  [data, error, isLoading] ;
-// };
-
-// export default useFetch;
+export default useFetch

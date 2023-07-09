@@ -24,10 +24,10 @@ import { RouterLink } from 'vue-router'
               <RouterLink class="nav-link active" aria-current="page" to="/">Home</RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/todo">Todo</RouterLink>
+              <RouterLink class="nav-link" to="/todos">Todos</RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/product">Product</RouterLink>
+              <RouterLink class="nav-link" to="/products">Products</RouterLink>
             </li>
           </ul>
         </div>

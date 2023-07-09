@@ -1,32 +1,24 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import useLearnTodoApi from '../components/api/useLearnTodoApi'
-import LearnTodoList from '../components/todo/LearnTodoList.vue'
-import HeaderView from '../components/common/HeaderView.vue'
-import Header2View from '../components/common/Header2View.vue'
-import CardView from '../components/common/CardView.vue'
 import HeadlineLeft2ColumnLayout from '../layouts/HeadlineLeft2ColumnLayout.vue'
 import HeadlineRight2ColumnLayout from '../layouts/HeadlineRight2ColumnLayout.vue'
+import useLearnTodoApi from '../components/api/useLearnTodoApi'
 import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints'
+import HeaderView from '../components/common/HeaderView.vue'
+import Header2View from '../components/common/Header2View.vue'
+import LearnTodoList from '../components/todo/LearnTodoList.vue'
+import CardView from '../components/common/CardView.vue'
 import useFetch from '../components/composables/useFetch'
+import ErrorView from '../components/error/ErrorView.vue'
+import LoadingView from '../components/error/LoadingView.vue'
 
 const { todos, deleteTodo, toggleDone } = useLearnTodoApi()
 
 const title = ref('Vue Projekt')
 const subTitle = ref('Willkommen auf dieser Webseite')
 
-// const product = ref(null)
-const [product] = useFetch(FAKE_STORE_API_PRODUCTS+"/1")
-
-// onMounted(async () => {
-//   try {
-//     const response = await fetch(`${FAKE_STORE_API_PRODUCTS}/1`)
-//     product.value = await response.json()
-//   } catch (err) {
-//     console.log(err.message)
-//   }
-// })
+const [product, errorProduct, isLoadingProduct] = useFetch(FAKE_STORE_API_PRODUCTS + '/1')
 </script>
 
 <template>
@@ -35,12 +27,14 @@ const [product] = useFetch(FAKE_STORE_API_PRODUCTS+"/1")
       <template #subTitle>{{ subTitle }}</template>
     </HeaderView>
 
+    <LoadingView v-if="isLoadingProduct" />
+    <ErrorView v-if="errorProduct" />
     <HeadlineLeft2ColumnLayout>
       <template #headline>
         <Header2View title="Unser Produkt der Woche">
           <template #subTitle>
             Unsere ganzen Produkte finden Ihr hier
-            <RouterLink class="text-warning" to="/product">Produkte</RouterLink>
+            <RouterLink class="text-warning" to="/products">Products</RouterLink>
           </template>
         </Header2View>
       </template>
@@ -52,7 +46,7 @@ const [product] = useFetch(FAKE_STORE_API_PRODUCTS+"/1")
         <Header2View title="Meine Lern Todo's">
           <template #subTitle>
             Für neue Todo's, geh bitte auf die Seite:
-            <RouterLink class="text-warning" to="/todo">Todo</RouterLink>
+            <RouterLink class="text-warning" to="/todos">Todos</RouterLink>
           </template>
         </Header2View>
       </template>

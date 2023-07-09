@@ -1,22 +1,24 @@
 <script setup>
 import { ref, computed } from 'vue'
+import ItemsLayout from '../layouts/ItemsLayout.vue'
 import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints.js'
 import HeaderView from '../components/common/HeaderView.vue'
 import CardView from '../components/common/CardView.vue'
-import ItemsLayout from '../layouts/ItemsLayout.vue'
 import useFetch from '../components/composables/useFetch'
+import ErrorView from '../components/error/ErrorView.vue'
+import LoadingView from '../components/error/LoadingView.vue'
 
-const [products] = useFetch(FAKE_STORE_API_PRODUCTS)
-
-const currentCategory = ref('all')
+const DEFAULT_CATEGORY = 'all'
+const [products, errorProducts, isLoadingProducts] = useFetch(FAKE_STORE_API_PRODUCTS)
+const currentCategory = ref(DEFAULT_CATEGORY)
 
 const categories = computed(() => [
-  'all',
+  DEFAULT_CATEGORY,
   ...new Set(products.value.map((product) => product.category))
 ])
 
 const filteredProducts = computed(() =>
-  currentCategory.value === 'all'
+  currentCategory.value === DEFAULT_CATEGORY
     ? products.value
     : products.value.filter((product) => product.category === currentCategory.value)
 )
@@ -40,6 +42,8 @@ const filteredProducts = computed(() =>
       </button>
     </div>
 
+    <LoadingView v-if="isLoadingProducts" />
+    <ErrorView v-if="errorProducts" />
     <ItemsLayout v-if="products">
       <div v-for="product in filteredProducts" :key="product.id">
         <CardView v-if="product" :product="product" />
