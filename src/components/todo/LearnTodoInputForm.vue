@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import ButtonView from '../common/ButtonView.vue';
 
 const MIN_NEW_TODO_LENGTH = 3
 const MAX_NEW_TODO_LENGTH = 25
@@ -35,12 +36,13 @@ const emitAddTodo = () => {
         <input v-model="newTodoPriority" type="checkbox" />
         Hohe Priorität
       </label>
-      <button
-        class="btn btn-primary text-white border-0"
+      <ButtonView
+        type="submit"
+        class="btn-primary border-0"
         :disabled="newTodoInput.length < MIN_NEW_TODO_LENGTH"
       >
         Add
-      </button>
+      </ButtonView>
     </div>
     <div>
       <p class="m-0">Neues Todo: {{ newTodoInput.length }} / {{ MAX_NEW_TODO_LENGTH }}</p>

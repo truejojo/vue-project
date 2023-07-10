@@ -4,6 +4,7 @@ import ItemsLayout from '../layouts/ItemsLayout.vue'
 import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints.js'
 import HeaderView from '../components/common/HeaderView.vue'
 import CardView from '../components/common/CardView.vue'
+import ButtonView from '../components/common/ButtonView.vue'
 import useFetch from '../components/composables/useFetch'
 import ErrorView from '../components/error/ErrorView.vue'
 import LoadingView from '../components/error/LoadingView.vue'
@@ -31,15 +32,14 @@ const filteredProducts = computed(() =>
     </HeaderView>
 
     <div class="d-flex gap-2 py-3">
-      <button
-        type="button"
+      <ButtonView
         @click="currentCategory = category"
         v-for="category in categories"
         :key="category"
         class="btn btn-info py-1 px-3"
       >
         {{ category }}
-      </button>
+      </ButtonView>
     </div>
 
     <LoadingView v-if="isLoadingProducts" />

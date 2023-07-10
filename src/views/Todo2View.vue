@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-import HeaderView from '../common/HeaderView.vue'
-import useLearnTodoApi from '../api/useLearnTodoApi'
+import HeaderView from '../components/common/HeaderView.vue'
+import useLearnTodoApi from '../components/api/useLearnTodoApi.js'
 /** with slots */
-import LearnTodo2List from './LearnTodo2List.vue'
-import LearnTodo2ListItem from './LearnTodo2ListItem.vue'
-import LearnTodo2Button from './LearnTodo2Button.vue'
+import LearnTodo2List from '../components/todo-2/LearnTodo2List.vue'
+import LearnTodo2ListItem from '../components/todo-2/LearnTodo2ListItem.vue'
+import LearnTodo2Button from '../components/todo-2/LearnTodo2Button.vue'
 
 const { todos, addTodo, deleteTodo, toggleDone } = useLearnTodoApi()
 
@@ -76,13 +76,13 @@ const emitAddTodo = () => {
       </div>
     </form>
 
-    <LearnTodo2List :todos="{ todos }">
-      <LearnTodo2ListItem :class="{ 'bg-success': todo.done }">
-        <template #task>
-          <h3 :class="[todo.priority ? 'text-danger' : 'text-info']">{{ todo.task }}</h3>
-        </template>
-        <template #button-group>
-          <div class="buttons">
+    <LearnTodo2List v-if="todos">
+      <div v-for="todo in todos" :key="todo.id">
+        <LearnTodo2ListItem>
+          <template #task>
+            <h3 :class="[todo.priority ? 'text-danger' : 'text-info']">{{ todo.task }}</h3>
+          </template>
+          <template #button-group>
             <LearnTodo2Button
               @click="toggleDone(todo)"
               class="me-2 me-md-3"
@@ -93,9 +93,9 @@ const emitAddTodo = () => {
             <LearnTodo2Button @click="deleteTodo(todo)" class="btn-danger" :disabled="!todo.done">
               &cross;
             </LearnTodo2Button>
-          </div>
-        </template>
-      </LearnTodo2ListItem>
+          </template>
+        </LearnTodo2ListItem>
+      </div>
     </LearnTodo2List>
   </div>
 </template>

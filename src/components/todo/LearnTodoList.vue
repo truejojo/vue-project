@@ -1,4 +1,5 @@
 <script setup>
+import ButtonView from '../common/ButtonView.vue';
 defineProps({
   todos: Array
 })
@@ -16,16 +17,16 @@ const emits = defineEmits(['deleteTodo', 'toggleDone'])
     >
       <h3 :class="[todo.priority ? 'text-danger' : 'text-info']" class="task">{{ todo.task }}</h3>
       <div class="buttons ms-2 d-flex">
-        <button
+        <ButtonView
           @click="emits('toggleDone', todo)"
           :class="[todo.done ? 'btn-primary' : 'btn-info']"
-          class="btn me-2 me-md-3"
+          class="me-2 me-md-2"
         >
           &check;
-        </button>
-        <button @click="emits('deleteTodo', todo)" class="btn btn-danger" :disabled="!todo.done">
+        </ButtonView>
+        <ButtonView @click="emits('deleteTodo', todo)" class="btn-danger" :disabled="!todo.done">
           &cross;
-        </button>
+        </ButtonView>
       </div>
     </li>
   </ul>
@@ -36,8 +37,3 @@ const emits = defineEmits(['deleteTodo', 'toggleDone'])
   word-break: break-all !important;
 }
 </style>
-
-<!-- 
-import LearnTodoListItem from './LearnTodoListItem.vue'
-<LearnTodoListItem v-for="todo in todos" :key="todo.id" :class="{ 'bg-success': todo.done }" :todo="todo" @deleteTodo="deleteTodo" @toggleDone="toggleDone" />
--->

@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
 import HeadlineLeft2ColumnLayout from '../layouts/HeadlineLeft2ColumnLayout.vue'
 import HeadlineRight2ColumnLayout from '../layouts/HeadlineRight2ColumnLayout.vue'
 import useLearnTodoApi from '../components/api/useLearnTodoApi'
 import { FAKE_STORE_API_PRODUCTS } from '../components/api/httpEndpoints'
 import HeaderView from '../components/common/HeaderView.vue'
 import Header2View from '../components/common/Header2View.vue'
+import LinkView from '../components/common/LinkView.vue'
 import LearnTodoList from '../components/todo/LearnTodoList.vue'
 import CardView from '../components/common/CardView.vue'
 import useFetch from '../components/composables/useFetch'
@@ -34,7 +34,7 @@ const [product, errorProduct, isLoadingProduct] = useFetch(FAKE_STORE_API_PRODUC
         <Header2View title="Unser Produkt der Woche">
           <template #subTitle>
             Unsere ganzen Produkte finden Ihr hier
-            <RouterLink class="text-warning" to="/products">Products</RouterLink>
+            <LinkView classNames="text-warning" to="/products">Products</LinkView>
           </template>
         </Header2View>
       </template>
@@ -46,7 +46,7 @@ const [product, errorProduct, isLoadingProduct] = useFetch(FAKE_STORE_API_PRODUC
         <Header2View title="Meine Lern Todo's">
           <template #subTitle>
             Für neue Todo's, geh bitte auf die Seite:
-            <RouterLink class="text-warning" to="/todos">Todos</RouterLink>
+            <LinkView classNames="text-warning" to="/todos">Todos</LinkView>
           </template>
         </Header2View>
       </template>
