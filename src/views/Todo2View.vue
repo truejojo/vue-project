@@ -5,23 +5,22 @@ import useLearnTodoApi from '../components/api/useLearnTodoApi.js'
 /** with slots */
 import LearnTodo2List from '../components/todo-2/LearnTodo2List.vue'
 import LearnTodo2ListItem from '../components/todo-2/LearnTodo2ListItem.vue'
+import LearnTodo2ListItemHeader from '../components/todo-2/LearnTodo2ListItemHeader.vue'
 import LearnTodo2Button from '../components/todo-2/LearnTodo2Button.vue'
-
-const { todos, addTodo, deleteTodo, toggleDone } = useLearnTodoApi()
-
-const title = ref('Todo 2')
-const isInputForm = ref(false)
-
-const toggleIsShowInputForm = () => {
-  isInputForm.value = !isInputForm.value
-}
 
 const MIN_NEW_TODO_LENGTH = 3
 const MAX_NEW_TODO_LENGTH = 25
 
+const { todos, addTodo, deleteTodo, toggleDone } = useLearnTodoApi()
+const title = ref('Todo 2')
+const isInputForm = ref(false)
 const placeholder = ref('Mein neues Todo...')
 const newTodoInput = ref('')
 const newTodoPriority = ref(false)
+
+const toggleIsShowInputForm = () => {
+  isInputForm.value = !isInputForm.value
+}
 
 const emitAddTodo = () => {
   const newTodo = newTodoInput.value
@@ -80,8 +79,11 @@ const emitAddTodo = () => {
       <div v-for="todo in todos" :key="todo.id">
         <LearnTodo2ListItem>
           <template #task>
-            <h3 :class="[todo.priority ? 'text-danger' : 'text-info']">{{ todo.task }}</h3>
+            <LearnTodo2ListItemHeader :priority="todo.priority">
+              {{ todo.task }}
+            </LearnTodo2ListItemHeader>
           </template>
+
           <template #button-group>
             <LearnTodo2Button
               @click="toggleDone(todo)"
