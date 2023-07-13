@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import ButtonView from '../common/ButtonView.vue';
+import ButtonView from '../common/ButtonView.vue'
 
-const MIN_NEW_TODO_LENGTH = 3
-const MAX_NEW_TODO_LENGTH = 25
+const NEW_TODO_MIN_LENGTH = 3
+const NEW_TODO_MAX_LENGTH = 25
 
 const placeholder = ref('Mein neues Todo...')
 const newTodoInput = ref('')
@@ -15,10 +15,10 @@ const emitAddTodo = () => {
   const newTodo = newTodoInput.value
   const newPriority = newTodoPriority.value
 
-  newTodoInput.value = ""
+  newTodoInput.value = ''
   newTodoPriority.value = false
 
-  return emit('addTodo', {newTodo, newPriority})
+  return emit('addTodo', { newTodo, newPriority })
 }
 </script>
 
@@ -29,7 +29,7 @@ const emitAddTodo = () => {
         v-model.trim="newTodoInput"
         type="text"
         :placeholder="placeholder"
-        :maxlength="MAX_NEW_TODO_LENGTH"
+        :maxlength="NEW_TODO_MAX_LENGTH"
         class="me-2 me-md-5 p-1"
       />
       <label class="me-2 me-md-5">
@@ -39,13 +39,13 @@ const emitAddTodo = () => {
       <ButtonView
         type="submit"
         class="btn-primary border-0"
-        :disabled="newTodoInput.length < MIN_NEW_TODO_LENGTH"
+        :disabled="newTodoInput.length < NEW_TODO_MIN_LENGTH"
       >
         Add
       </ButtonView>
     </div>
     <div>
-      <p class="m-0">Neues Todo: {{ newTodoInput.length }} / {{ MAX_NEW_TODO_LENGTH }}</p>
+      <p class="m-0">Neues Todo: {{ newTodoInput.length }} / {{ NEW_TODO_MAX_LENGTH }}</p>
     </div>
   </form>
 </template>

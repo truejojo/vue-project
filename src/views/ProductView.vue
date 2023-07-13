@@ -18,7 +18,7 @@ const categories = computed(() => [
   ...new Set(products.value.map((product) => product.category))
 ])
 
-const filteredProducts = computed(() =>
+const filteredProducts = computed(() =>  
   currentCategory.value === DEFAULT_CATEGORY
     ? products.value
     : products.value.filter((product) => product.category === currentCategory.value)

@@ -22,7 +22,7 @@ import LinkView from './common/LinkView.vue'
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <LinkView classNames="nav-link active" aria-current="page" to="/">Home</LinkView>
+              <LinkView classNames="nav-link" to="/">Home</LinkView>
             </li>
             <li class="nav-item">
               <LinkView classNames="nav-link" to="/todos">Todos</LinkView>

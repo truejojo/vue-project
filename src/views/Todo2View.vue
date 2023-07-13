@@ -8,8 +8,8 @@ import LearnTodo2ListItem from '../components/todo-2/LearnTodo2ListItem.vue'
 import LearnTodo2ListItemHeader from '../components/todo-2/LearnTodo2ListItemHeader.vue'
 import LearnTodo2Button from '../components/todo-2/LearnTodo2Button.vue'
 
-const MIN_NEW_TODO_LENGTH = 3
-const MAX_NEW_TODO_LENGTH = 25
+const NEW_TODO_MIN_LENGTH = 3
+const NEW_TODO_MAX_LENGTH = 25
 
 const { todos, addTodo, deleteTodo, toggleDone } = useLearnTodoApi()
 const title = ref('Todo 2')
@@ -56,7 +56,7 @@ const emitAddTodo = () => {
           v-model.trim="newTodoInput"
           type="text"
           :placeholder="placeholder"
-          :maxlength="MAX_NEW_TODO_LENGTH"
+          :maxlength="NEW_TODO_MAX_LENGTH"
           class="me-2 me-md-5 p-1"
         />
         <label class="me-2 me-md-5">
@@ -65,13 +65,13 @@ const emitAddTodo = () => {
         </label>
         <LearnTodo2Button
           class="btn-primary text-white border-0"
-          :disabled="newTodoInput.length < MIN_NEW_TODO_LENGTH"
+          :disabled="newTodoInput.length < NEW_TODO_MIN_LENGTH"
         >
           Add
         </LearnTodo2Button>
       </div>
       <div>
-        <p class="m-0">Neues Todo: {{ newTodoInput.length }} / {{ MAX_NEW_TODO_LENGTH }}</p>
+        <p class="m-0">Neues Todo: {{ newTodoInput.length }} / {{ NEW_TODO_MAX_LENGTH }}</p>
       </div>
     </form>
 

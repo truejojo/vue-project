@@ -1,21 +1,23 @@
 <script setup>
-// import LearnTodoListItem from './LearnTodoListItem.vue';
 import ButtonView from '../common/ButtonView.vue'
+// import LearnTodoListItem from './LearnTodoListItem.vue';
+// const props = defineProps({
+//   todos: Array,
+//   deleteTodo: Function,
+//   onToggleDone: Function,
+// })
 defineProps({
   todos: Array
-  // deleteTodo: Function,
-  // onToggleDone: Function,
 })
-
 const emits = defineEmits(['deleteTodo', 'toggleDone'])
 </script>
 
 <template>
   <ul class="list-unstyled">
     <!-- <div
-      v-for="todo in todos"
+      v-for="todo in props.todos"
       :key="todo.id">
-      <LearnTodoListItem :todo="todo" @deleteTodo="deleteTodo" @toggleDone="toggleDone" ></LearnTodoListItem>
+      <LearnTodoListItem :todo="todo" @deleteTodo="props.deleteTodo" @toggleDone="props.toggleDone" ></LearnTodoListItem>
     </div> -->
     <li
       v-for="todo in todos"

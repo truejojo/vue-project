@@ -1,5 +1,5 @@
 <template>
   <ul class="list-unstyled">
-      <slot ></slot>
+    <slot></slot>
   </ul>
 </template>
