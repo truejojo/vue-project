@@ -8,7 +8,7 @@
 -	https://vueschool.io/courses/vue-js-fundamentals-with-the-composition-api
 -	https://firebase.google.com/docs/firestore?authuser=0&hl=de
 -	https://www.youtube.com/watch?v=84mhLKUM04E
-- ##Gibt es vielleicht ein Beispiel für dokumentierten Code?
+## Gibt es vielleicht ein Beispiel für dokumentierten Code?
 -	https://www.youtube.com/watch?v=84mhLKUM04E
 -	https://laracasts.com/series/learn-vue-3-step-by-step/episodes/1
 ## Welche IDE wurde genutzt?
