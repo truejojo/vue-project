@@ -1,5 +1,5 @@
-Vue Project:
-Welche Anleitungen oder auch YouTube & Co Videos wurden genutzt?
+#Vue Project:
+##Welche Anleitungen oder auch YouTube & Co Videos wurden genutzt?
 -	https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3/
 -	https://vuejs.org/tutorial/#step-1
 -	Bis Kapitel 21: https://laracasts.com/series/learn-vue-3-step-by-step/episodes/1
@@ -8,10 +8,10 @@ Welche Anleitungen oder auch YouTube & Co Videos wurden genutzt?
 -	https://vueschool.io/courses/vue-js-fundamentals-with-the-composition-api
 -	https://firebase.google.com/docs/firestore?authuser=0&hl=de
 -	https://www.youtube.com/watch?v=84mhLKUM04E
-Gibt es vielleicht ein Beispiel für dokumentierten Code?
+##Gibt es vielleicht ein Beispiel für dokumentierten Code?
 -	https://www.youtube.com/watch?v=84mhLKUM04E
 -	https://laracasts.com/series/learn-vue-3-step-by-step/episodes/1
-Welche IDE wurde genutzt?
+##Welche IDE wurde genutzt?
 -	VSCode
 +	Vetur
 +	Vue 3 Pack
@@ -23,15 +23,15 @@ Welche IDE wurde genutzt?
 *	Prettier & Prettier ESLint
 *	Auto Close Tag
 *	Auto Rename Tag
-Wie lange wurde für das Kennenlernen von Vue gebraucht?
+##Wie lange wurde für das Kennenlernen von Vue gebraucht?
 -	Ca 30/35/40 Stunden??
-Wie lange wurde für das reine Umsetzen der Todo-App gebraucht?
+##Wie lange wurde für das reine Umsetzen der Todo-App gebraucht?
 -	Vielleicht 20/30 Stunden??
-Gibt es Dokumentation für das Projekt?
+##Gibt es Dokumentation für das Projekt?
 -	Nein – gute Frage, evtl. mit einer ReadMe beginnen?
 -	Funktionen kommentieren?
 -	TDD?
-Wie würde dieses Projekt nun „fiktiv“ weiter gehen?
+##Wie würde dieses Projekt nun „fiktiv“ weiter gehen?
 -	Evtl. eine Authentifizierung für die Todo-Liste hinzufügen
 -	Evtl. ein Limit an Todos setzen
 -	Allgemein, „Coursor“ etc.
@@ -41,11 +41,11 @@ Wie würde dieses Projekt nun „fiktiv“ weiter gehen?
 +	Siehe Vue-school -> vue router course
 
 
-JavaScript/ES6, CSS/Sass - Projekt:
+##JavaScript/ES6, CSS/Sass - Projekt:
 -	Online: https://portfolio-jv.netlify.app/
 -	Code: https://github.com/truejojo/portfolio
 
-React/ReactTS, CSS/Sass, Firebase/Firestore - Projekt:
+##React/ReactTS, CSS/Sass, Firebase/Firestore - Projekt:
 -	Online: https://my-portfolio-jv.netlify.app/
 -	Code: https://github.com/truejojo/my-portfolio
 
