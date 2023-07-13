@@ -13,16 +13,16 @@
 -	https://laracasts.com/series/learn-vue-3-step-by-step/episodes/1
 ##Welche IDE wurde genutzt?
 -	VSCode
-+	Vetur
-+	Vue 3 Pack
-+	Vue 3 Snippets
-+	Vue Language Features
-+	Vue VSCode Snippets
-+	Vue VS Code Extension Pack
-*	ESLint
-*	Prettier & Prettier ESLint
-*	Auto Close Tag
-*	Auto Rename Tag
+  +	Vetur
+  +	Vue 3 Pack
+  +	Vue 3 Snippets
+  +	Vue Language Features
+  +	Vue VSCode Snippets
+  +	Vue VS Code Extension Pack
+    *	ESLint
+    *	Prettier & Prettier ESLint
+    *	Auto Close Tag
+    *	Auto Rename Tag
 ##Wie lange wurde für das Kennenlernen von Vue gebraucht?
 -	Ca 30/35/40 Stunden??
 ##Wie lange wurde für das reine Umsetzen der Todo-App gebraucht?
