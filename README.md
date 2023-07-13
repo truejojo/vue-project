@@ -12,42 +12,42 @@
 -	https://www.youtube.com/watch?v=84mhLKUM04E
 -	https://laracasts.com/series/learn-vue-3-step-by-step/episodes/1
 ##Welche IDE wurde genutzt?
--	VSCode
-  +	Vetur
-  +	Vue 3 Pack
-  +	Vue 3 Snippets
-  +	Vue Language Features
-  +	Vue VSCode Snippets
-  +	Vue VS Code Extension Pack
-    *	ESLint
-    *	Prettier & Prettier ESLint
-    *	Auto Close Tag
-    *	Auto Rename Tag
+  -	VSCode
+    +	Vetur
+    +	Vue 3 Pack
+    +	Vue 3 Snippets
+    +	Vue Language Features
+    +	Vue VSCode Snippets
+    +	Vue VS Code Extension Pack
+      *	ESLint
+      *	Prettier & Prettier ESLint
+      *	Auto Close Tag
+      *	Auto Rename Tag
 ##Wie lange wurde für das Kennenlernen von Vue gebraucht?
--	Ca 30/35/40 Stunden??
+  -	Ca 30/35/40 Stunden??
 ##Wie lange wurde für das reine Umsetzen der Todo-App gebraucht?
--	Vielleicht 20/30 Stunden??
+  -	Vielleicht 20/30 Stunden??
 ##Gibt es Dokumentation für das Projekt?
--	Nein – gute Frage, evtl. mit einer ReadMe beginnen?
--	Funktionen kommentieren?
--	TDD?
+  -	Nein – gute Frage, evtl. mit einer ReadMe beginnen?
+  -	Funktionen kommentieren?
+  -	TDD?
 ##Wie würde dieses Projekt nun „fiktiv“ weiter gehen?
--	Evtl. eine Authentifizierung für die Todo-Liste hinzufügen
--	Evtl. ein Limit an Todos setzen
--	Allgemein, „Coursor“ etc.
--	Zur Product-Page:
-+	Single-Product-Page erstellen
-+	Params? -> mixins -> siehe digitalocean Quelle
-+	Siehe Vue-school -> vue router course
+  -	Evtl. eine Authentifizierung für die Todo-Liste hinzufügen
+  -	Evtl. ein Limit an Todos setzen
+  -	Allgemein, „Coursor“ etc.
+  -	Zur Product-Page:
+    +	Single-Product-Page erstellen
+    +	Params? -> mixins -> siehe digitalocean Quelle
+    +	Siehe Vue-school -> vue router course
 
 
 ##JavaScript/ES6, CSS/Sass - Projekt:
--	Online: https://portfolio-jv.netlify.app/
--	Code: https://github.com/truejojo/portfolio
+  -	Online: https://portfolio-jv.netlify.app/
+  -	Code: https://github.com/truejojo/portfolio
 
 ##React/ReactTS, CSS/Sass, Firebase/Firestore - Projekt:
--	Online: https://my-portfolio-jv.netlify.app/
--	Code: https://github.com/truejojo/my-portfolio
+  -	Online: https://my-portfolio-jv.netlify.app/
+  -	Code: https://github.com/truejojo/my-portfolio
 
 
 
